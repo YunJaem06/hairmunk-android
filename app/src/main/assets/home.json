@@ -1,11 +1,11 @@
 {
   "title": {
-    "text": "안녕하세요, 이런 상품 어때요?",
+    "text": "안녕하세요,\n이런 상품 어때요?",
     "icon_url": "https://user-images.githubusercontent.com/96619472/165505612-29da1cb4-5a8e-43f0-bd32-2e1c47c734bd.png"
   },
   "top_banners": [
     {
-      "background_image_url": "https://user-images.githubusercontent.com/96619472/165505682-7e30f85a-a9b0-4a6b-ac8d-85edcac0d05d.png",
+      "background_image_url": "https://user-images.githubusercontent.com/96619472/165533367-70e112b0-0c51-4db0-a2fe-663db648156b.png",
       "badge": {
         "label": "기획전",
         "background_color": "#52514d"
@@ -21,7 +21,7 @@
       }
     },
     {
-      "background_image_url": "https://user-images.githubusercontent.com/96619472/165505704-f2995dfe-ca8e-4547-984f-ec211abc766e.png",
+      "background_image_url": "https://user-images.githubusercontent.com/96619472/165505717-2725dd2d-8d5c-4034-b9a7-a52c833bd4ee.png",
       "badge": {
         "label": "기획전",
         "background_color": "#967a6d"
