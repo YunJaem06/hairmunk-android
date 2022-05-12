@@ -1,4 +1,4 @@
-package com.hairmunk.app
+package com.hairmunk.app.model
 
 import com.google.gson.annotations.SerializedName
 

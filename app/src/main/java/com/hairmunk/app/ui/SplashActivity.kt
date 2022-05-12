@@ -1,4 +1,4 @@
-package com.hairmunk.app
+package com.hairmunk.app.ui
 
 import android.content.Intent
 import android.os.Bundle
