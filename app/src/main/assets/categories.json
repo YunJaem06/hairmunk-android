@@ -1,0 +1,70 @@
+{
+  "categories": [
+    {
+      "category_id": "shampoo",
+      "label" : "샴푸/린스",
+      "thumbnail_image_url" : "https://user-images.githubusercontent.com/96619472/168306371-7a28061a-9474-455f-92dc-890deb22d02f.jpg",
+      "updated": false
+    },
+    {
+      "category_id": "dyeing",
+      "label" : "칼라/염모제",
+      "thumbnail_image_url" : "https://user-images.githubusercontent.com/96619472/168306394-0175c9cc-2e7a-4541-b976-b5fda15e9218.jpg",
+      "updated": false
+    },
+    {
+      "category_id": "hair-loss",
+      "label" : "탈모상품",
+      "thumbnail_image_url" : "https://user-images.githubusercontent.com/96619472/168306403-2c4f1983-25b8-47d1-ae17-900a6f5dff87.jpg",
+      "updated": true
+    },
+    {
+      "category_id": "permanent",
+      "label" : "파마",
+      "thumbnail_image_url" : "https://user-images.githubusercontent.com/96619472/168306415-de445271-c9a7-4b9f-9f33-6518fa904264.jpg",
+      "updated": false
+    },
+    {
+      "category_id": "wax",
+      "label" : "왁스/크림",
+      "thumbnail_image_url" : "https://user-images.githubusercontent.com/96619472/168306432-6dbc5b96-cabf-4562-9e1a-ff33c517be7d.jpg",
+      "updated": true
+    },
+    {
+      "category_id": "spray",
+      "label" : "스프레이",
+      "thumbnail_image_url" : "https://user-images.githubusercontent.com/96619472/168306452-36b805cb-7d3e-49df-8b0f-d3cf56ee1448.jpg",
+      "updated": false
+    },
+    {
+      "category_id": "wig",
+      "label" : "가발",
+      "thumbnail_image_url" : "https://user-images.githubusercontent.com/96619472/168306467-256481ce-67da-4eb2-977c-671fed592409.jpg",
+      "updated": true
+    },
+    {
+      "category_id": "hair-dry",
+      "label" : "드라이기",
+      "thumbnail_image_url" : "https://user-images.githubusercontent.com/96619472/168306486-72867d99-0585-45f6-b726-1a46af638690.jpg",
+      "updated": false
+    },
+    {
+      "category_id": "barber",
+      "label" : "바리깡",
+      "thumbnail_image_url" : "https://user-images.githubusercontent.com/96619472/168306511-5afe1124-73f8-4003-9158-ff4dd3732f37.jpg",
+      "updated": false
+    },
+    {
+      "category_id": "beauty-supplies",
+      "label" : "미용물품",
+      "thumbnail_image_url" : "https://user-images.githubusercontent.com/96619472/168306528-1a07dedf-b193-482e-b1a9-ba241613408b.jpg",
+      "updated": false
+    },
+    {
+      "category_id": "daily-necessities",
+      "label" : "생활용품",
+      "thumbnail_image_url" : "https://user-images.githubusercontent.com/96619472/168306543-8304dd6d-b7f4-45ca-9ae0-8cc1d81a6d53.jpg",
+      "updated": true
+    }
+  ]
+}
