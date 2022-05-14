@@ -14,7 +14,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_category"
-        android:name="com.hairmunk.app.ui.CategoryFragment"
+        android:name="com.hairmunk.app.ui.category.CategoryFragment"
         android:label="CategoryFragment" />
     <fragment
         android:id="@+id/navigation_cart"
