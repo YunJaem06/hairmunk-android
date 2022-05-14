@@ -1,4 +1,4 @@
-package com.hairmunk.app.repository
+package com.hairmunk.app.repository.home
 
 import com.google.gson.Gson
 import com.hairmunk.app.AssetLoader

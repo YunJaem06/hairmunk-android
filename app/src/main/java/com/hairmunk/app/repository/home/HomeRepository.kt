@@ -1,4 +1,4 @@
-package com.hairmunk.app.repository
+package com.hairmunk.app.repository.home
 
 import com.hairmunk.app.model.HomeData
 

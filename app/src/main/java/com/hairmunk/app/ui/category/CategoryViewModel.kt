@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.hairmunk.app.model.Category
-import com.hairmunk.app.repository.CategoryRepository
+import com.hairmunk.app.repository.category.CategoryRepository
 import kotlinx.coroutines.launch
 
 class CategoryViewModel(private val categoryRepository: CategoryRepository): ViewModel() {

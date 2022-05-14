@@ -5,10 +5,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.hairmunk.app.AssetLoader
 import com.hairmunk.app.network.ApiClient
-import com.hairmunk.app.repository.CategoryRemoteDataSource
-import com.hairmunk.app.repository.CategoryRepository
-import com.hairmunk.app.repository.HomeAssetDataSource
-import com.hairmunk.app.repository.HomeRepository
+import com.hairmunk.app.repository.category.CategoryRemoteDataSource
+import com.hairmunk.app.repository.category.CategoryRepository
+import com.hairmunk.app.repository.home.HomeAssetDataSource
+import com.hairmunk.app.repository.home.HomeRepository
 import com.hairmunk.app.ui.category.CategoryViewModel
 import com.hairmunk.app.ui.home.HomeViewModel
 

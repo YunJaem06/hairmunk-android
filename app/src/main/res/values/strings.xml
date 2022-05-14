@@ -5,7 +5,7 @@
     <string name="unit_discount_rate">%d%%</string>
     <string name="unit_discount_currency">%s원</string>
 
-    <string name="label_category_icon">카테고리</string>
+    <string name="label_category">카테고리</string>
     <string name="label_home_icon">홈</string>
     <string name="label_cart_icon">장바구니</string>
 
@@ -14,4 +14,5 @@
     <string name="description_home_banner_thumbnail">홈화면 배너 썸네일</string>
     <string name="description_product_thumbnail">상품 상세 대표 이미지</string>
     <string name="description_product_detail_image">상품 상세 이미지</string>
+    <string name="label_category_new">NEW</string>
 </resources>

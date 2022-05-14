@@ -1,4 +1,4 @@
-package com.hairmunk.app.repository
+package com.hairmunk.app.repository.category
 
 import com.hairmunk.app.model.Category
 import com.hairmunk.app.network.ApiClient

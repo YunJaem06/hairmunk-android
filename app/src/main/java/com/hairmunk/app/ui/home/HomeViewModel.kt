@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.hairmunk.app.model.Banner
 import com.hairmunk.app.model.Title
-import com.hairmunk.app.repository.HomeRepository
+import com.hairmunk.app.repository.home.HomeRepository
 
 class HomeViewModel(private val homeRepository: HomeRepository) : ViewModel() {
 
