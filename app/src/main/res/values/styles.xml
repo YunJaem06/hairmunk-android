@@ -19,6 +19,10 @@
         <item name="android:textColor">@color/black_01</item>
     </style>
 
+    <style name="TextMedium.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="TextMedium.Purple">
         <item name="android:textColor">@color/purple</item>
     </style>
@@ -29,6 +33,10 @@
 
     <style name="TextSubtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
         <item name="android:textColor">@color/black_01</item>
+    </style>
+
+    <style name="TextSubtitle1.Bold" >
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="TextSubtitle1.White">
@@ -52,6 +60,14 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="TextSubtitle2.Purple">
+        <item name="android:textColor">@color/purple</item>
+    </style>
+
+    <style name="TextSubtitle2.Purple.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="TextSubtitle2.Grey05">
         <item name="android:textColor">@color/grey_05</item>
     </style>
@@ -69,8 +85,12 @@
         <item name="android:textColor">@color/black_01</item>
     </style>
 
-    <style name="TextCaption1.Grey03" parent="TextAppearance.AppCompat.Caption">
+    <style name="TextCaption1.Grey03">
         <item name="android:textColor">@color/grey_03</item>
+    </style>
+
+    <style name="TextCaption1.Grey05">
+        <item name="android:textColor">@color/grey_05</item>
     </style>
 
     <style name="TextCaption2" parent="TextAppearance.AppCompat.Caption">

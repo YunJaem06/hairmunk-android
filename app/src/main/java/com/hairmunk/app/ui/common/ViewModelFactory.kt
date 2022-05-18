@@ -7,9 +7,12 @@ import com.hairmunk.app.AssetLoader
 import com.hairmunk.app.network.ApiClient
 import com.hairmunk.app.repository.category.CategoryRemoteDataSource
 import com.hairmunk.app.repository.category.CategoryRepository
+import com.hairmunk.app.repository.categorydetail.CategoryDetailRemoteDataSource
+import com.hairmunk.app.repository.categorydetail.CategoryDetailRepository
 import com.hairmunk.app.repository.home.HomeAssetDataSource
 import com.hairmunk.app.repository.home.HomeRepository
 import com.hairmunk.app.ui.category.CategoryViewModel
+import com.hairmunk.app.ui.categorydetail.CategoryDetailViewModel
 import com.hairmunk.app.ui.home.HomeViewModel
 
 class ViewModelFactory(private val context: Context): ViewModelProvider.Factory {
@@ -23,6 +26,10 @@ class ViewModelFactory(private val context: Context): ViewModelProvider.Factory 
             modelClass.isAssignableFrom(CategoryViewModel::class.java) -> {
                 val repository = CategoryRepository(CategoryRemoteDataSource(ApiClient.create()))
                 CategoryViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(CategoryDetailViewModel::class.java) -> {
+                val repository = CategoryDetailRepository(CategoryDetailRemoteDataSource(ApiClient.create()))
+                CategoryDetailViewModel(repository) as T
             }
             else -> {
                 throw IllegalArgumentException("Failed to create ViewModel: ${modelClass.name}")
