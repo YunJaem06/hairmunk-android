@@ -1,0 +1,150 @@
+{
+  "categories": [
+    {
+      "category_id": "shampoo",
+      "label" : "샴푸/린스",
+      "thumbnail_image_url" : "https://user-images.githubusercontent.com/96619472/168306371-7a28061a-9474-455f-92dc-890deb22d02f.jpg",
+      "updated": false
+    },
+    {
+      "category_id": "dyeing",
+      "label" : "칼라/염모제",
+      "thumbnail_image_url" : "https://user-images.githubusercontent.com/96619472/168306394-0175c9cc-2e7a-4541-b976-b5fda15e9218.jpg",
+      "updated": false
+    },
+    {
+      "category_id": "hair-loss",
+      "label" : "탈모상품",
+      "thumbnail_image_url" : "https://user-images.githubusercontent.com/96619472/168306403-2c4f1983-25b8-47d1-ae17-900a6f5dff87.jpg",
+      "updated": true
+    },
+    {
+      "category_id": "permanent",
+      "label" : "파마",
+      "thumbnail_image_url" : "https://user-images.githubusercontent.com/96619472/168306415-de445271-c9a7-4b9f-9f33-6518fa904264.jpg",
+      "updated": false
+    },
+    {
+      "category_id": "wax",
+      "label" : "왁스/크림",
+      "thumbnail_image_url" : "https://user-images.githubusercontent.com/96619472/168306432-6dbc5b96-cabf-4562-9e1a-ff33c517be7d.jpg",
+      "updated": true
+    },
+    {
+      "category_id": "spray",
+      "label" : "스프레이",
+      "thumbnail_image_url" : "https://user-images.githubusercontent.com/96619472/168306452-36b805cb-7d3e-49df-8b0f-d3cf56ee1448.jpg",
+      "updated": false
+    },
+    {
+      "category_id": "wig",
+      "label" : "가발",
+      "thumbnail_image_url" : "https://user-images.githubusercontent.com/96619472/168306467-256481ce-67da-4eb2-977c-671fed592409.jpg",
+      "updated": true
+    },
+    {
+      "category_id": "hair-dry",
+      "label" : "드라이기",
+      "thumbnail_image_url" : "https://user-images.githubusercontent.com/96619472/168306486-72867d99-0585-45f6-b726-1a46af638690.jpg",
+      "updated": false
+    },
+    {
+      "category_id": "barber",
+      "label" : "바리깡",
+      "thumbnail_image_url" : "https://user-images.githubusercontent.com/96619472/168306511-5afe1124-73f8-4003-9158-ff4dd3732f37.jpg",
+      "updated": false
+    },
+    {
+      "category_id": "beauty-supplies",
+      "label" : "미용물품",
+      "thumbnail_image_url" : "https://user-images.githubusercontent.com/96619472/168306528-1a07dedf-b193-482e-b1a9-ba241613408b.jpg",
+      "updated": false
+    },
+    {
+      "category_id": "daily-necessities",
+      "label" : "생활용품",
+      "thumbnail_image_url" : "https://user-images.githubusercontent.com/96619472/168306543-8304dd6d-b7f4-45ca-9ae0-8cc1d81a6d53.jpg",
+      "updated": true
+    }
+  ],
+  "shampoo" : {
+    "top_selling" : {
+      "title" : {
+        "text" : "인기상품"
+      },
+      "categories" : [
+        {
+          "category_id" : "shampoo_absentmindedly",
+          "label": "건성",
+          "thumbnail_image_url": "https://user-images.githubusercontent.com/96619472/169014602-fa5aea51-70f5-419d-93ef-01aaae5bbc5d.png",
+          "updated": true
+        },
+        {
+          "category_id" : "shampoo_neutrality",
+          "label": "중성",
+          "thumbnail_image_url": "https://user-images.githubusercontent.com/96619472/169014616-c46e1e4b-8537-4008-ba5e-dd0888321bc4.png",
+          "updated": false
+        },
+        {
+          "category_id" : "shampoo_intelligence",
+          "label": "지성",
+          "thumbnail_image_url": "https://user-images.githubusercontent.com/96619472/169014633-fb8d4367-6792-4b8f-a519-aee76f748da7.png",
+          "updated": false
+        },
+        {
+          "category_id" : "shampoo_susceptibility",
+          "label": "민감성",
+          "thumbnail_image_url": "https://user-images.githubusercontent.com/96619472/169014638-f83e4754-3094-4ade-873c-3512e3b9a517.png",
+          "updated": false
+        },
+        {
+          "category_id" : "shampoo_dandruff",
+          "label": "비듬",
+          "thumbnail_image_url": "https://user-images.githubusercontent.com/96619472/169014644-cd4b268d-1be5-4be0-baed-169a95b01818.png",
+          "updated": false
+        },
+        {
+          "category_id" : "shampoo_treatment",
+          "label": "트리트먼트",
+          "thumbnail_image_url": "https://user-images.githubusercontent.com/96619472/169014650-cde0cd70-8c78-4538-8b13-0e2a7b4c83b1.png",
+          "updated": false
+        }
+      ]
+    },
+    "promotions": {
+      "title": {
+        "text": "추천상품"
+      },
+      "items": [
+        {
+          "label": "[건성용]모이스처 샴푸 건조두피, 영양공급, 수분감",
+          "discount_rate": 10,
+          "price": 45000,
+          "representative_image_url": "https://user-images.githubusercontent.com/96619472/169016972-cbb0f8e6-6efd-4bed-9b45-a719b5fdd69e.png",
+          "product_id": "absentmindedly_1"
+        },
+        {
+          "label": "바오밥오일 3개입 약산성 천연샴푸",
+          "discount_rate": 11,
+          "price": 33000,
+          "representative_image_url": "https://user-images.githubusercontent.com/96619472/169017000-fe9cdf5b-019f-4252-b6f2-60e4541ff202.png",
+          "product_id": "absentmindedly_2"
+        },
+        {
+          "label": "제이숲 오리지널 실크케라틴 샴푸",
+          "discount_rate": 22,
+          "price": 18000,
+          "representative_image_url": "https://user-images.githubusercontent.com/96619472/169017011-eb4f50ce-232f-4b06-bcc1-c2449ce9c385.png",
+          "product_id": "absentmindedly_3"
+        },
+        {
+          "label": "다비네스 퓨리파잉 샴푸",
+          "discount_rate": 20,
+          "price": 39000,
+          "representative_image_url": "https://user-images.githubusercontent.com/96619472/169017021-a75dd1e7-5e49-4817-b2ce-89e8a52b056b.png",
+          "product_id": "absentmindedly_4"
+        }
+      ]
+    }
+  }
+}
