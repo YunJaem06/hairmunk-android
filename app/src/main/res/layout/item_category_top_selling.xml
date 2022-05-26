@@ -58,7 +58,7 @@
             app:layout_constraintEnd_toEndOf="@id/iv_category_top_selling_image"
             app:layout_constraintStart_toStartOf="@id/iv_category_top_selling_image"
             app:layout_constraintTop_toBottomOf="@id/iv_category_top_selling_image"
-            tools:text="자켓" />
+            tools:text="샴푸/린스" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
