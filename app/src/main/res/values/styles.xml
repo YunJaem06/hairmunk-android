@@ -5,8 +5,29 @@
     <style name="Circle">
         <item name="cornerSize">50%</item>
     </style>
+    
+    <style name="RoundedBig">
+        <item name="cornerSize">12dp</item>
+    </style>
+
+    <style name="RoundedMedium">
+        <item name="cornerSize">8dp</item>
+    </style>
 
     <!-- ImageView Style -->
+    <style name="TextHeadline32">
+        <item name="android:textSize">32sp</item>
+        <item name="android:textColor">@color/black_01</item>
+    </style>
+
+    <style name="TextHeadline32.White">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="TextHeadline32.White.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+    
     <style name="TextHeadline5.Black02" parent="TextAppearance.MaterialComponents.Headline5">
         <item name="android:textColor">@color/black_02</item>
     </style>
@@ -77,12 +98,20 @@
         <item name="android:textColor">@color/black_01</item>
     </style>
 
+    <style name="TextSubtitle3.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="TextSubtitle3.Grey03">
         <item name="android:textColor">@color/grey_03</item>
     </style>
 
     <style name="TextCaption1" parent="TextAppearance.AppCompat.Caption">
         <item name="android:textColor">@color/black_01</item>
+    </style>
+
+    <style name="TextCaption1.White">
+        <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="TextCaption1.Grey03">

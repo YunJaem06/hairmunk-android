@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.hairmunk.app.model.Banner
 import com.hairmunk.app.model.Title
 import com.hairmunk.app.repository.home.HomeRepository
+import com.hairmunk.app.ui.common.Event
 
 class HomeViewModel(private val homeRepository: HomeRepository) : ViewModel() {
 
@@ -15,8 +16,15 @@ class HomeViewModel(private val homeRepository: HomeRepository) : ViewModel() {
     private val _topBanners = MutableLiveData<List<Banner>>()
     val topBanners : LiveData<List<Banner>> = _topBanners
 
+    private val _openProductEvent = MutableLiveData<Event<String>>()
+    val openProductEvent : LiveData<Event<String>> = _openProductEvent
+
     init {
         loadHomeData()
+    }
+
+    fun openProductDetail(productId: String){
+        _openProductEvent.value = Event(productId)
     }
 
     private fun loadHomeData(){
