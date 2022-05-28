@@ -146,5 +146,49 @@
         }
       ]
     }
+  },
+  "products": {
+    "FW-Schwarzkopf-1": {
+      "brand_name": "Schwarzkopf",
+      "label": "이고라 헤어 컬러10 크림",
+      "discount_rate": 10,
+      "price": 25000,
+      "type": "Free",
+      "representative_image_url": "https://user-images.githubusercontent.com/96619472/165505693-7c57b215-9fcb-4dfb-8567-942dd1d70e0e.png",
+      "descriptions": [
+        {
+          "id": "FW-Schwarzkopf-1-desc-1",
+          "image_url": "https://user-images.githubusercontent.com/96619472/170819740-d4f3901c-5fbf-45a0-a503-2b4eadf8ea81.png"
+        },
+        {
+          "id": "FW-Schwarzkopf-1-desc-2",
+          "image_url": "https://user-images.githubusercontent.com/96619472/170819744-5a09a840-cd79-4f49-84c1-7e25656800e0.png"
+        }
+      ],
+      "product_id": "FW-Schwarzkopf-1"
+    },
+    "INSIGHT-1": {
+      "brand_name": "INSIGHT",
+      "label": "안티옥시던트 리주베네이팅 샴푸",
+      "discount_rate": 10,
+      "price": 80000,
+      "type": "1800x720",
+      "representative_image_url": "https://user-images.githubusercontent.com/96619472/165505717-2725dd2d-8d5c-4034-b9a7-a52c833bd4ee.png",
+      "descriptions": [
+        {
+          "id": "INSIGHT-1-desc-1",
+          "image_url": "https://user-images.githubusercontent.com/96619472/170819857-e7e4bfc0-aff0-4a86-9d2e-ccd7da5fffc5.png"
+        },
+        {
+          "id": "INSIGHT-1-desc-2",
+          "image_url": "https://user-images.githubusercontent.com/96619472/170819866-e45772e4-3f58-4e22-a856-cde350eb5fce.png"
+        },
+        {
+          "id": "INSIGHT-1-desc-3",
+          "image_url": "https://user-images.githubusercontent.com/96619472/170819869-0c1446a4-67bd-4ad3-ba1f-fab20ea3eff6.png"
+        }
+      ],
+      "product_id": "INSIGHT-1"
+    }
   }
 }

@@ -2,6 +2,7 @@ package com.hairmunk.app.network
 
 import com.hairmunk.app.model.Category
 import com.hairmunk.app.model.CategoryDetail
+import com.hairmunk.app.model.Product
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -16,6 +17,8 @@ interface ApiClient {
 
     @GET("{categoryId}.json")
     suspend fun getCategoryDetail(@Path("categoryId") categoryId: String): CategoryDetail
+    @GET("products/{productId}.json")
+    suspend fun getProductDetail(@Path("productId") productId: String): Product
 
     companion object {
 

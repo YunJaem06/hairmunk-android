@@ -6,6 +6,7 @@
     <color name="gradient_purple">#6b19ff</color>
     <color name="gradient_pink">#fd62ff</color>
     <color name="black_01">#000000</color>
+    <color name="black_01_a08">#14000000</color>
     <color name="black_02">#111111</color>
     <color name="grey_01">#5f5f69</color>
     <color name="grey_02">#52514d</color>
@@ -18,5 +19,6 @@
     <color name="grey_09">#eeeff1</color>
     <color name="bluegrey">#f2f4f6</color>
     <color name="white">#ffffff</color>
+    <color name="white_a90">#E6FFFFFF</color>
     <color name="brown">#967a6d</color>
 </resources>
