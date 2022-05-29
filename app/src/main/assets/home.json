@@ -36,5 +36,40 @@
         "product_id": "INSIGHT-1"
       }
     }
-  ]
+  ],
+  "promotions": {
+    "title": {
+      "text": "오늘의 특가"
+    },
+    "items": [
+      {
+        "label": "[건성용]모이스처 샴푸 건조두피, 영양공급, 수분감",
+        "discount_rate": 10,
+        "price": 45000,
+        "representative_image_url": "https://user-images.githubusercontent.com/96619472/169016972-cbb0f8e6-6efd-4bed-9b45-a719b5fdd69e.png",
+        "product_id": "absentmindedly_1"
+      },
+      {
+        "label": "바오밥오일 3개입 약산성 천연샴푸",
+        "discount_rate": 11,
+        "price": 33000,
+        "representative_image_url": "https://user-images.githubusercontent.com/96619472/169017000-fe9cdf5b-019f-4252-b6f2-60e4541ff202.png",
+        "product_id": "absentmindedly_2"
+      },
+      {
+        "label": "제이숲 오리지널 실크케라틴 샴푸",
+        "discount_rate": 22,
+        "price": 18000,
+        "representative_image_url": "https://user-images.githubusercontent.com/96619472/169017011-eb4f50ce-232f-4b06-bcc1-c2449ce9c385.png",
+        "product_id": "absentmindedly_3"
+      },
+      {
+        "label": "다비네스 퓨리파잉 샴푸",
+        "discount_rate": 20,
+        "price": 39000,
+        "representative_image_url": "https://user-images.githubusercontent.com/96619472/169017021-a75dd1e7-5e49-4817-b2ce-89e8a52b056b.png",
+        "product_id": "absentmindedly_4"
+      }
+    ]
+  }
 }

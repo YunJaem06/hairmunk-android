@@ -4,24 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.viewpager2.widget.ViewPager2
-import com.google.android.material.tabs.TabLayout
+import androidx.recyclerview.widget.ConcatAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 import com.hairmunk.app.*
-import com.hairmunk.app.common.KEY_CATEGORY_ID
 import com.hairmunk.app.common.KEY_PRODUCT_ID
 import com.hairmunk.app.databinding.FragmentHomeBinding
-import com.hairmunk.app.ui.common.Event
-import com.hairmunk.app.ui.common.EventObserver
-import com.hairmunk.app.ui.common.ViewModelFactory
+import com.hairmunk.app.ui.common.*
 
-class HomeFragment: Fragment() {
+class HomeFragment: Fragment(), ProductClickListener {
 
     private val viewModel: HomeViewModel by viewModels { ViewModelFactory(requireContext()) }
     private lateinit var binding: FragmentHomeBinding
@@ -42,6 +36,13 @@ class HomeFragment: Fragment() {
         setToolbar()
         setNavigation()
         setTopBanners()
+        setListAdapter()
+    }
+
+    override fun onProductClick(productId: String) {
+        findNavController().navigate(R.id.action_home_to_product_detail, bundleOf(
+            KEY_PRODUCT_ID to "INSIGHT-1"
+        ))
     }
 
     private fun setToolbar() {
@@ -77,6 +78,15 @@ class HomeFragment: Fragment() {
             TabLayoutMediator(binding.viewpagerHomeBannerIndicator, this) { tab, position ->
 
             }.attach()
+        }
+    }
+    private fun setListAdapter() {
+        val titleAdapter = SectionTitleAdapter()
+        val promotionAdapter = ProductPromotionAdapter(this)
+        binding.rvHome.adapter = ConcatAdapter(titleAdapter, promotionAdapter)
+        viewModel.promotions.observe(viewLifecycleOwner){ promotions->
+            titleAdapter.submitList(listOf(promotions.title))
+            promotionAdapter.submitList(promotions.items)
         }
     }
 }
