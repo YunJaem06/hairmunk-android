@@ -1,4 +1,4 @@
-package com.hairmunk.app.ui
+package com.hairmunk.app.ui.cart
 
 import android.os.Bundle
 import android.view.LayoutInflater
