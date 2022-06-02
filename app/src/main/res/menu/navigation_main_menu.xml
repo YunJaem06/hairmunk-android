@@ -12,4 +12,8 @@
         android:id="@+id/navigation_cart"
         android:icon="@drawable/selector_cart_icon"
         android:title="@string/label_cart" />
+    <item
+        android:id="@+id/navigation_sign"
+        android:icon="@drawable/mylogin"
+        android:title="@string/label_sign"/>
 </menu>

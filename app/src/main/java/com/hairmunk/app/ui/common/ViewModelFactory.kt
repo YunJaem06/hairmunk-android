@@ -13,6 +13,7 @@ import com.hairmunk.app.repository.home.HomeRepository
 import com.hairmunk.app.repository.productdetail.ProductDetailRemoteDataSource
 import com.hairmunk.app.repository.productdetail.ProductDetailRepository
 import com.hairmunk.app.ServiceLocator
+import com.hairmunk.app.ui.cart.CartViewModel
 import com.hairmunk.app.ui.category.CategoryViewModel
 import com.hairmunk.app.ui.categorydetail.CategoryDetailViewModel
 import com.hairmunk.app.ui.home.HomeViewModel
@@ -38,6 +39,9 @@ class ViewModelFactory(private val context: Context): ViewModelProvider.Factory 
             modelClass.isAssignableFrom(ProductDetailViewModel::class.java) -> {
                 val repository = ProductDetailRepository(ProductDetailRemoteDataSource(ServiceLocator.provideApiClient()))
                 ProductDetailViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(CartViewModel::class.java) -> {
+                CartViewModel() as T
             }
             else -> {
                 throw IllegalArgumentException("Failed to create ViewModel: ${modelClass.name}")

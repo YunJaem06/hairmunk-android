@@ -38,4 +38,8 @@
         android:name="com.hairmunk.app.ui.categorydetail.CategoryDetailFragment"
         android:label="CategoryDetailFragment"
         tools:layout="@layout/fragment_category_detail"/>
+    <fragment
+        android:id="@+id/navigation_sign"
+        android:name="com.hairmunk.app.ui.AuthFragment"
+        android:label="AuthFragment" />
 </navigation>
