@@ -14,6 +14,7 @@ android {
         targetSdk 32
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -34,6 +35,9 @@ android {
     dataBinding{
         enabled = true
     }
+    viewBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -52,6 +56,9 @@ dependencies {
     //Firebase
     implementation platform('com.google.firebase:firebase-bom:30.0.1')
     implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'com.google.android.gms:play-services-auth:19.2.0'
 
     //Network
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
