@@ -2,7 +2,6 @@ package com.hairmunk.app.ui.category
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.hairmunk.app.databinding.ItemCategoryBinding

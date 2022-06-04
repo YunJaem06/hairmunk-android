@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.hairmunk.app.R
 import com.hairmunk.app.common.KEY_PRODUCT_ID
 import com.hairmunk.app.databinding.FragmentProductDetailBinding
 import com.hairmunk.app.ui.common.ViewModelFactory

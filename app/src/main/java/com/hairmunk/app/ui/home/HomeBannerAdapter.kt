@@ -1,21 +1,12 @@
 package com.hairmunk.app.ui.home
 
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.hairmunk.app.model.Banner
-import com.hairmunk.app.GlideApp
-import com.hairmunk.app.R
 import com.hairmunk.app.databinding.ItemHomeBannerBinding
-import java.text.DecimalFormat
-import kotlin.math.roundToInt
 
 class HomeBannerAdapter(private val viewModel: HomeViewModel) :
     ListAdapter<Banner, HomeBannerAdapter.HomeBannerViewHolder>(BannerDiffCallback()) {

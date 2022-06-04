@@ -1,20 +1,17 @@
 package com.hairmunk.app.ui.category
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.hairmunk.app.R
 import com.hairmunk.app.common.KEY_CATEGORY_ID
 import com.hairmunk.app.common.KEY_CATEGORY_LABEL
 import com.hairmunk.app.databinding.FragmentCategoryBinding
-import com.hairmunk.app.model.Category
 import com.hairmunk.app.ui.common.EventObserver
 import com.hairmunk.app.ui.common.ViewModelFactory
 

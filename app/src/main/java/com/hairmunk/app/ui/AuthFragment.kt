@@ -7,21 +7,40 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
-import com.hairmunk.app.R
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.hairmunk.app.databinding.FragmentAuthBinding
 
-class AuthFragment: Fragment() {
+class AuthFragment : Fragment() {
 
-    private lateinit var mAuth : FirebaseAuth
+    private lateinit var Auth: FirebaseAuth
+    private var _binding: FragmentAuthBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_auth, container, false)
-        mAuth = FirebaseAuth.getInstance()
-
+        Auth = Firebase.auth
+        _binding = FragmentAuthBinding.inflate(inflater, container, false)
+        return binding.root
 
     }
+    // 로그아웃 구현
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.btnLogout.setOnClickListener {
+            val intent = Intent(context, LoginActivity::class.java)
+            startActivity(intent)
+            Auth.signOut()
+        }
+        binding.tvAuth.text = "반갑습니다 ${Auth.currentUser?.email} 으로 로그인 했습니다."
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
 }

@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.hairmunk.app.R
 import com.hairmunk.app.databinding.FragmentCartBinding
 import com.hairmunk.app.ui.common.ViewModelFactory
 

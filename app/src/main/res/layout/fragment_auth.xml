@@ -5,10 +5,10 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/auth"
+        android:id="@+id/tv_auth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="내정보"
+        android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,6 +21,6 @@
         android:text="로그아웃"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/auth"/>
+        app:layout_constraintTop_toBottomOf="@id/tv_auth"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
