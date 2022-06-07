@@ -35,12 +35,11 @@ class AuthFragment : Fragment() {
             startActivity(intent)
             Auth.signOut()
         }
-        binding.tvAuth.text = "반갑습니다 ${Auth.currentUser?.email} 으로 로그인 했습니다."
+        binding.tvAuth.text = "안녕하세요 ${Auth.currentUser?.email} 님"
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
 }

@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="viewModel"
+            type="com.hairmunk.app.ui.productdetail.ProductDetailViewModel" />
 
         <variable
             name="product"
@@ -195,6 +198,7 @@
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/background_gradient_r24"
                 android:text="장바구니 담기"
+                android:onClick="@{() -> viewModel.addCart(product)}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
