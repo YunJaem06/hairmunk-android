@@ -81,7 +81,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.9'
 
     //kakao
-    implementation "com.kakao.sdk:v2-user:2.0.1"
+    implementation "com.kakao.sdk:v2-user:2.11.0"
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

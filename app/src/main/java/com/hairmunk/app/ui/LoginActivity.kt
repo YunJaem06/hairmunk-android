@@ -1,5 +1,6 @@
 package com.hairmunk.app.ui
 
+import android.content.ContentValues
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,14 +13,39 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.hairmunk.app.R
+import com.hairmunk.app.SharedPreferences
 import com.hairmunk.app.databinding.ActivityLoginBinding
+import com.kakao.sdk.auth.model.OAuthToken
+import com.kakao.sdk.common.model.ClientError
+import com.kakao.sdk.common.model.ClientErrorCause
 import com.kakao.sdk.common.util.Utility
+import com.kakao.sdk.user.UserApiClient
+
+const val LOGIN = "login"
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
 
     private lateinit var otherDialog: BottomSheetDialog
+
+    // 카카오 로그인 callback
+    private val callback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
+        if (error != null) {
+            Log.d("login-fail", "카카오계정으로 로그인 실패 : $error")
+        }
+        else if (token != null) {
+            UserApiClient.instance.me { user, error ->
+                Log.d("login-success ", "카카오계정으로 로그인 성공 : ${token.accessToken}")
+
+                SharedPreferences.putStrValue(this@LoginActivity, LOGIN, "kakao")
+
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,10 +54,30 @@ class LoginActivity : AppCompatActivity() {
 
         val keyHash = Utility.getKeyHash(this)
         Log.d("Hash", keyHash)
-        
+
         // 다른 로그인 바텀시트
         otherLogin()
 
+        binding.ivLoginKakao.setOnClickListener {
+            if(UserApiClient.instance.isKakaoTalkLoginAvailable(this)) {
+                UserApiClient.instance.loginWithKakaoTalk(this) { token, error ->
+                    if (error != null) {
+                        Log.d("login-fail", "카카오계정으로 로그인 실패 : $error")
+                        if (error is ClientError && error.reason == ClientErrorCause.Cancelled) {
+                            return@loginWithKakaoTalk
+                        }
+                        UserApiClient.instance.loginWithKakaoAccount(this, callback = callback)
+                    } else if (token != null) {
+                        Log.d("login-success ", "카카오계정으로 로그인 성공 : ${token.accessToken}")
+                        val intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
+                }
+            } else {
+                UserApiClient.instance.loginWithKakaoAccount(this, callback = callback)
+            }
+        }
     }
 
     private fun otherLogin() {
@@ -50,9 +96,19 @@ class LoginActivity : AppCompatActivity() {
                 otherDialog.dismiss()
             }
 
-
         }
-
     }
 
+    override fun onStart() {
+        super.onStart()
+        // 자동 로그인
+        val lastLogin = SharedPreferences.getStrValue(this, LOGIN, "none")
+        if (lastLogin == "kakao") {
+            if (UserApiClient.instance.isKakaoTalkLoginAvailable(this)) {
+                UserApiClient.instance.loginWithKakaoTalk(this, callback = callback)
+            } else {
+                UserApiClient.instance.loginWithKakaoAccount(this, callback = callback)
+            }
+        }
+    }
 }
