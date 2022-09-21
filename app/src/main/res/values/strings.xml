@@ -27,4 +27,9 @@
     <string name="label_product_price_description">쿠폰 적용가</string>
     <string name="label_add_cart">장바구니 담기</string>
     <string name="label_sign">내정보</string>
+
+    //naver
+    <string name="naver_client_id">7g3iozdfkgkFhYHB7SMh</string>
+    <string name="naver_client_secret">n7RlOQ6l8f</string>
+    <string name="naver_client_name">bm1535</string>
 </resources>

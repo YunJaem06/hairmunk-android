@@ -20,6 +20,12 @@ import com.kakao.sdk.common.model.ClientError
 import com.kakao.sdk.common.model.ClientErrorCause
 import com.kakao.sdk.common.util.Utility
 import com.kakao.sdk.user.UserApiClient
+import com.navercorp.nid.NaverIdLoginSDK
+import com.navercorp.nid.oauth.NidOAuthLogin
+import com.navercorp.nid.oauth.OAuthLoginCallback
+import com.navercorp.nid.profile.NidProfileCallback
+import com.navercorp.nid.profile.data.NidProfileResponse
+import com.nhn.android.naverlogin.OAuthLogin
 
 const val LOGIN = "login"
 
@@ -51,6 +57,12 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val naverClientId = getString(R.string.naver_client_id)
+        val naverClientSecret = getString(R.string.naver_client_secret)
+        val naverClientName = getString(R.string.naver_client_name)
+
+        NaverIdLoginSDK.initialize(this, naverClientId, naverClientSecret, naverClientName)
 
         val keyHash = Utility.getKeyHash(this)
         Log.d("Hash", keyHash)
@@ -95,8 +107,65 @@ class LoginActivity : AppCompatActivity() {
                 startActivity(intent)
                 otherDialog.dismiss()
             }
+            otherView.findViewById<LinearLayout>(R.id.ll_login_naver).setOnClickListener {
+                startNaverLogin()
+            }
 
         }
+    }
+
+    private fun startNaverLogin(){
+        var naverToken : String = ""
+
+        val profileCallback = object : NidProfileCallback<NidProfileResponse>{
+            override fun onError(errorCode: Int, message: String) {
+                onFailure(errorCode, message)
+            }
+
+            override fun onFailure(httpStatus: Int, message: String) {
+                val errorCode = NaverIdLoginSDK.getLastErrorCode().code
+                val errorDescription = NaverIdLoginSDK.getLastErrorDescription()
+                Toast.makeText(this@LoginActivity, "errorCode: ${errorCode}\n" +
+                        "errorDescription: $errorDescription", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onSuccess(result: NidProfileResponse) {
+                val userId = result.profile?.id
+                val nickname = result.profile?.nickname
+
+                val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                intent.putExtra("login", "naver")
+                intent.putExtra("profileid", userId)
+                intent.putExtra("profilename", nickname)
+                startActivity(intent)
+                finish()
+
+            }
+
+        }
+
+        val oauthLoginCallback = object : OAuthLoginCallback {
+            override fun onError(errorCode: Int, message: String) {
+                onFailure(errorCode, message)
+            }
+
+            override fun onFailure(httpStatus: Int, message: String) {
+                val errorCode = NaverIdLoginSDK.getLastErrorCode().code
+                val errorDescription = NaverIdLoginSDK.getLastErrorDescription()
+                Toast.makeText(this@LoginActivity, "errorCode: ${errorCode}\n" +
+                        "errorDescription: $errorDescription", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onSuccess() {
+                naverToken = NaverIdLoginSDK.getAccessToken().toString()
+                SharedPreferences.putStrValue(this@LoginActivity, LOGIN, "naver")
+
+                // 로그인 유저 정보
+                NidOAuthLogin().callProfileApi(profileCallback)
+
+            }
+        }
+        NaverIdLoginSDK.authenticate(this, oauthLoginCallback)
     }
 
     override fun onStart() {

@@ -1,2 +1,4 @@
 # [캡스톤 개인 프로젝트 2022.03 ~]
-ㅎㅇ
+
+- kakao Login Api
+- naver Login Api
