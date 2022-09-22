@@ -178,6 +178,8 @@ class LoginActivity : AppCompatActivity() {
             } else {
                 UserApiClient.instance.loginWithKakaoAccount(this, callback = callback)
             }
+        } else if (lastLogin == "naver") {
+            // 네이버 자동로그인 필요
         }
     }
 }

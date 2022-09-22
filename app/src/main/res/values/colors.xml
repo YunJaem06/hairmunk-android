@@ -21,4 +21,6 @@
     <color name="white">#ffffff</color>
     <color name="white_a90">#E6FFFFFF</color>
     <color name="brown">#967a6d</color>
+
+    <color name="light_gray">#A1A1A1</color>
 </resources>
