@@ -1,6 +1,5 @@
-package com.hairmunk.app.ui
+package com.hairmunk.app.ui.login
 
-import android.content.ContentValues
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,13 +7,10 @@ import android.util.Log
 import android.widget.LinearLayout
 import android.widget.Toast
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import com.hairmunk.app.R
 import com.hairmunk.app.SharedPreferences
 import com.hairmunk.app.databinding.ActivityLoginBinding
+import com.hairmunk.app.ui.MainActivity
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.ClientError
 import com.kakao.sdk.common.model.ClientErrorCause
@@ -25,7 +21,6 @@ import com.navercorp.nid.oauth.NidOAuthLogin
 import com.navercorp.nid.oauth.OAuthLoginCallback
 import com.navercorp.nid.profile.NidProfileCallback
 import com.navercorp.nid.profile.data.NidProfileResponse
-import com.nhn.android.naverlogin.OAuthLogin
 
 const val LOGIN = "login"
 

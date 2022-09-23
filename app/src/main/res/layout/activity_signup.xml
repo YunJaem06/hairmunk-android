@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.SignupActivity">
+    tools:context=".ui.login.SignupActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -233,5 +233,21 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_login_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="다음"
+        android:enabled="false"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginBottom="35dp"
+        android:background="@drawable/background_black_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

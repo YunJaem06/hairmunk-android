@@ -39,10 +39,11 @@
             android:name=".ui.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.SignupActivity"
+            android:name=".ui.login.SignupActivity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
-            android:name=".ui.LoginActivity"
+            android:name=".ui.login.LoginActivity"
             android:exported="false" />
     </application>
 
