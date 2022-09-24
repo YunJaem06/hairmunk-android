@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/iv_dialog_agree"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="24dp"
+        android:src="@drawable/icon_unagree"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_dialog_permission"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="헤어뭉크 이용약관 (필수)"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toEndOf="@id/iv_dialog_agree"
+        app:layout_constraintTop_toTopOf="@id/iv_dialog_agree"
+        app:layout_constraintBottom_toBottomOf="@id/iv_dialog_agree"/>
+
+    <ImageView
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:src="@drawable/icon_down_chevron"
+        android:layout_marginEnd="20dp"
+        app:tint="@color/light_gray"
+        app:layout_constraintTop_toTopOf="@id/iv_dialog_agree"
+        app:layout_constraintBottom_toBottomOf="@id/iv_dialog_agree"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
