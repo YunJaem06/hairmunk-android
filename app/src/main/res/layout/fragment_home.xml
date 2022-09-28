@@ -15,6 +15,7 @@
         android:layout_height="match_parent">
 
         <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/home_main_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
             android:layout_marginTop="42.5dp"
@@ -24,39 +25,41 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
+                android:id="@+id/iv_home_menu"
                 android:layout_width="18dp"
                 android:layout_height="18dp"
-                android:src="@drawable/icon_main_toolbar_menu"
-                app:tint="@color/black_01" />
+                android:background="@drawable/icon_main_toolbar_menu"/>
 
             <ImageView
+                android:id="@+id/iv_home_alarm"
                 android:layout_width="23dp"
                 android:layout_height="23dp"
                 android:layout_gravity="end"
                 android:layout_marginEnd="15dp"
-                android:src="@drawable/icon_main_toolbar_alarm"
-                app:tint="@color/black_01" />
+                android:background="@drawable/icon_main_toolbar_alarm" />
 
             <ImageView
-                android:id="@+id/main_home_btn_search"
+                android:id="@+id/iv_home_search"
                 android:layout_width="23dp"
                 android:layout_height="23dp"
                 android:layout_gravity="end"
                 android:layout_marginEnd="15dp"
                 android:clickable="true"
-                android:src="@drawable/icon_main_toolbar_search"
-                app:tint="@color/black_01" />
+                android:background="@drawable/icon_main_toolbar_search" />
 
 
         </com.google.android.material.appbar.MaterialToolbar>
 
         <androidx.core.widget.NestedScrollView
+            android:id="@+id/home_scrollview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            android:layout_marginBottom="?actionBarSize"
+            android:background="@color/white">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
+                android:background="@color/white"
                 android:layout_height="match_parent">
 
                 <com.asksira.loopingviewpager.LoopingViewPager
@@ -103,9 +106,10 @@
                     android:id="@+id/viewpager_home_banner"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/main_home_pager_line" />
 
                 <com.google.android.material.tabs.TabLayout
                     android:id="@+id/viewpager_home_banner_indicator"
@@ -113,7 +117,7 @@
                     android:layout_height="45dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/main_home_pager_line"
+                    app:layout_constraintTop_toBottomOf="@id/viewpager_home_banner"
                     app:tabBackground="@drawable/selector_viewpager_indicator"
                     app:tabGravity="center"
                     app:tabIndicatorHeight="0dp" />

@@ -105,7 +105,10 @@ class LoginActivity : AppCompatActivity() {
             otherView.findViewById<LinearLayout>(R.id.ll_login_naver).setOnClickListener {
                 startNaverLogin()
             }
-
+            otherView.findViewById<LinearLayout>(R.id.ll_login_facebook).setOnClickListener{
+                var intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
         }
     }
 
