@@ -70,8 +70,8 @@ class HomeFragment: Fragment(), ProductClickListener {
             }
         }
 
-        imgList.add(HomeAd("https://user-images.githubusercontent.com/96619472/192743737-89c73d54-655b-461c-92b6-dad9c37f5ab6.png"))
-        imgList.add(HomeAd("https://user-images.githubusercontent.com/96619472/192750860-a82eeec6-d099-47f6-b837-c55e624af254.png"))
+        imgList.add(HomeAd("https://user-images.githubusercontent.com/96619472/193256442-96a7c528-b26e-4d20-a693-ad50118af76e.png"))
+        imgList.add(HomeAd("https://user-images.githubusercontent.com/96619472/193256414-2456a9e1-d509-4086-9678-a465f8ab5abb.png"))
 
         bannerAdapter = HomeBannerAutoAdapter(imgList, true, requireActivity())
         binding.mainHomeAdVp.adapter = bannerAdapter

@@ -68,6 +68,8 @@
                     android:layout_height="330dp"
                     app:autoScroll="true"
                     app:isInfinite="true"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:scrollInterval="4000" />
 
