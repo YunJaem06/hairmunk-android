@@ -4,7 +4,7 @@
         <!-- Primary brand color. -->
 
         <item name="windowNoTitle">true</item>
-        <item name="windowActionBar">true</item>
+        <item name="windowActionBar">false</item>
 
         <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
 

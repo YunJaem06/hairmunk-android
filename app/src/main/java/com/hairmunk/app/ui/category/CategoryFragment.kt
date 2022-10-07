@@ -32,6 +32,10 @@ class CategoryFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        activity?.window?.apply {
+            decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+        }
+
         val categoryAdapter = CategoryAdapter(viewModel)
         binding.rvCategoryList.adapter = categoryAdapter
         viewModel.items.observe(viewLifecycleOwner) {
