@@ -24,4 +24,6 @@
 
     <color name="light_gray">#A1A1A1</color>
     <color name="light_red">#f20016</color>
+    <color name="kakao_yellow">#FEE500</color>
+    <color name="naver_green">#1EC800</color>
 </resources>

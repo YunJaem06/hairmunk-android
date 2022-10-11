@@ -22,6 +22,7 @@ import com.navercorp.nid.oauth.NidOAuthLogin
 import com.navercorp.nid.oauth.OAuthLoginCallback
 import com.navercorp.nid.profile.NidProfileCallback
 import com.navercorp.nid.profile.data.NidProfileResponse
+import com.nhn.android.naverlogin.OAuthLogin
 
 const val LOGIN = "login"
 
@@ -105,10 +106,12 @@ class LoginActivity : AppCompatActivity() {
             }
             otherView.findViewById<LinearLayout>(R.id.ll_login_naver).setOnClickListener {
                 startNaverLogin()
+                otherDialog.dismiss()
             }
             otherView.findViewById<LinearLayout>(R.id.ll_login_facebook).setOnClickListener{
                 var intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
+                otherDialog.dismiss()
             }
         }
     }
