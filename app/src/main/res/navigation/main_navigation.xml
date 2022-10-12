@@ -42,4 +42,8 @@
         android:id="@+id/navigation_sign"
         android:name="com.hairmunk.app.ui.MyPageFragment"
         android:label="AuthFragment" />
+    <fragment
+        android:id="@+id/navigation_map"
+        android:name="com.hairmunk.app.ui.map.MapFragment"
+        android:label="MapFragment" />
 </navigation>
