@@ -32,6 +32,11 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var otherDialog: BottomSheetDialog
 
+    companion object {
+        //네이버 로그인 인스턴스
+        var naverAccessToken = ""
+    }
+
     // 카카오 로그인 callback
     private val callback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
         if (error != null) {
@@ -79,6 +84,7 @@ class LoginActivity : AppCompatActivity() {
                     } else if (token != null) {
                         Log.d("login-success ", "카카오계정으로 로그인 성공 : ${token.accessToken}")
                         val intent = Intent(this, MainActivity::class.java)
+                        intent.putExtra("login", "kakao")
                         startActivity(intent)
                         finish()
                     }
@@ -134,11 +140,13 @@ class LoginActivity : AppCompatActivity() {
             override fun onSuccess(result: NidProfileResponse) {
                 val userId = result.profile?.id
                 val nickname = result.profile?.nickname
+                val email = result.profile?.email
 
                 val intent = Intent(this@LoginActivity, MainActivity::class.java)
                 intent.putExtra("login", "naver")
                 intent.putExtra("profileid", userId)
                 intent.putExtra("profilename", nickname)
+                intent.putExtra("profileemail", email)
                 startActivity(intent)
                 finish()
 
@@ -160,6 +168,7 @@ class LoginActivity : AppCompatActivity() {
 
             override fun onSuccess() {
                 naverToken = NaverIdLoginSDK.getAccessToken().toString()
+                naverAccessToken = NaverIdLoginSDK.getAccessToken().toString()
                 SharedPreferences.putStrValue(this@LoginActivity, LOGIN, "naver")
 
                 // 로그인 유저 정보

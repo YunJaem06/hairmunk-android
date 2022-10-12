@@ -3,6 +3,7 @@ package com.hairmunk.app.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,11 +35,13 @@ class MyPageFragment : Fragment() {
     ): View? {
         binding = FragmentMypageBinding.inflate(inflater, container, false)
 
+
         val bundle = arguments
         if (bundle != null) {
             name = bundle.getString("name")
             email = bundle.getString("email")
             login = SharedPreferences.getStrValue(activity, LOGIN, "none")
+            Log.d("logintest", "$bundle")
         }
 
         if (login == "kakao") {
@@ -61,7 +64,6 @@ class MyPageFragment : Fragment() {
 
         binding.tvMypageLogout.setOnClickListener {
             if (login == "naver") {
-                NaverIdLoginSDK.logout()
                 NidOAuthLogin().callDeleteTokenApi(requireContext(), object : OAuthLoginCallback {
                     override fun onError(errorCode: Int, message: String) {
                     }
@@ -70,6 +72,7 @@ class MyPageFragment : Fragment() {
                     }
 
                     override fun onSuccess() {
+                        NaverIdLoginSDK.logout()
                         Toast.makeText(context, "네이버 아이디 토큰삭제 성공!", Toast.LENGTH_SHORT).show()                    }
 
                 })
@@ -83,6 +86,7 @@ class MyPageFragment : Fragment() {
                 }
             }
             SharedPreferences.putStrValue(activity, LOGIN, "none")
+            startActivity(Intent(activity, LoginActivity::class.java))
             activity?.finish()
         }
     }
