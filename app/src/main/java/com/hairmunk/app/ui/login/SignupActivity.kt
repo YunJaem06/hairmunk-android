@@ -195,6 +195,7 @@ class SignupActivity : AppCompatActivity(), View.OnClickListener {
 
         })
     }
+    // 패스워드
     private fun putPassword() {
         binding.etLoginPassword.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -212,6 +213,7 @@ class SignupActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
+    // 핸드폰 번호
     private fun putPhoneNumber() {
         binding.etLoginPhoneNumber.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -228,7 +230,8 @@ class SignupActivity : AppCompatActivity(), View.OnClickListener {
         })
 
     }
-
+    
+    // 인증번호
     private fun putVerification() {
         binding.etLoginVerification.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {

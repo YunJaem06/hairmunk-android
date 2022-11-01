@@ -40,6 +40,7 @@ class HomeFragment: Fragment(), ProductClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // 상단바 투명도 조정
         val outLocation = IntArray(2)
         val tabLocation = IntArray(2)
         binding.homeMainToolbar.getLocationOnScreen(outLocation)
@@ -70,6 +71,7 @@ class HomeFragment: Fragment(), ProductClickListener {
             }
         }
 
+        // 무한 viewpager
         imgList.add(HomeAd("https://user-images.githubusercontent.com/96619472/193256442-96a7c528-b26e-4d20-a693-ad50118af76e.png"))
         imgList.add(HomeAd("https://user-images.githubusercontent.com/96619472/193256414-2456a9e1-d509-4086-9678-a465f8ab5abb.png"))
         imgList.add(HomeAd("https://user-images.githubusercontent.com/96619472/193258789-b1e94af5-07e0-4e16-9f6f-3196e5b8dd21.png"))
