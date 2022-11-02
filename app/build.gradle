@@ -82,6 +82,8 @@ dependencies {
 
     //kakao
     implementation "com.kakao.sdk:v2-user:2.11.0"
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation files('libs/libDaumMapAndroid.jar')
 
     //naver
     implementation 'com.navercorp.nid:oauth-jdk8:5.1.1'

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.hairmunk.app.databinding.FragmentMapBinding
+import net.daum.mf.map.api.MapView
 
 class MapFragment : Fragment() {
 
@@ -17,6 +18,11 @@ class MapFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentMapBinding.inflate(inflater, container, false)
+
+        val mapView = MapView(context)
+
+        binding.mapView.addView(mapView)
+
         return binding.root
     }
 }

@@ -4,6 +4,13 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission
+        android:name="android.permission.ACCESS_FINE_LOCATION" >
+    </uses-permission>
+
+    <uses-permission
+        android:name="android.permission.ACCESS_COARSE_LOCATION">
+    </uses-permission>
 
     <application
         android:name=".GlobalApplication"
@@ -12,6 +19,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.Hairmunkandroid">
         <activity
             android:name=".ui.SplashActivity"
@@ -35,6 +43,8 @@
                     android:scheme="d8ae330b057065d6d09df556554d4bc8" />
             </intent-filter>
         </activity>
+        <meta-data android:name="com.kakao.sdk.AppKey"
+            android:value="d8ae330b057065d6d09df556554d4bc8"/>
         <activity
             android:name=".ui.MainActivity"
             android:exported="false" />
