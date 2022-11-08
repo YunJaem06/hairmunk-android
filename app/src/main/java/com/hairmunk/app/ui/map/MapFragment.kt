@@ -19,15 +19,25 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.hairmunk.app.databinding.FragmentMapBinding
+import com.hairmunk.app.model.MapList
 import net.daum.mf.map.api.MapPOIItem
 import net.daum.mf.map.api.MapPoint
 import net.daum.mf.map.api.MapView
 
 class MapFragment : Fragment() {
 
+    companion object {
+        const val BASE_URL = "https://dapi.kakao.com/"
+        const val API_KEY = "KakaoAK aab5ad8d697b36e9ea67cad3fdc4c440"
+    }
+
     private lateinit var binding: FragmentMapBinding
 
     private val ACCESS_FINE_LOCATION = 1000
+    private val mapList = arrayListOf<MapList>()
+    private val mapListAdapter = MapListAdapter(mapList)
+    private var pageNumber = 1 // 검색 페이지 번호
+    private var keyword = "미용실" // 검색 키워드
 
     override fun onCreateView(
         inflater: LayoutInflater,
