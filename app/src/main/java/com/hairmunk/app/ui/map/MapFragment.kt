@@ -106,23 +106,22 @@ class MapFragment : Fragment() {
 
     @SuppressLint("MissingPermission")
     private fun startTracking() {
-        binding.mapView.currentLocationTrackingMode =
-            MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeading  //이 부분
-
-        val lm: LocationManager = context?.getSystemService(LOCATION_SERVICE) as LocationManager
-        val userNowLocation: Location? = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
-        //위도 , 경도
-        val uLatitude = userNowLocation?.latitude
-        val uLongitude = userNowLocation?.longitude
-        val uNowPosition = MapPoint.mapPointWithGeoCoord(uLatitude!!, uLongitude!!)
-
-        // 현 위치에 마커 찍기
-        val marker = MapPOIItem()
-        marker.itemName = "현 위치"
-        marker.mapPoint =uNowPosition
-        marker.markerType = MapPOIItem.MarkerType.BluePin
-        marker.selectedMarkerType = MapPOIItem.MarkerType.RedPin
-        binding.mapView.addPOIItem(marker)
+        binding.mapView.currentLocationTrackingMode = MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeading  //이 부분
+//
+//        val lm: LocationManager = context?.getSystemService(LOCATION_SERVICE) as LocationManager
+//        val userNowLocation: Location? = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
+//        //위도 , 경도
+//        val uLatitude = userNowLocation?.latitude
+//        val uLongitude = userNowLocation?.longitude
+//        val uNowPosition = MapPoint.mapPointWithGeoCoord(uLatitude!!, uLongitude!!)
+//
+//        // 현 위치에 마커 찍기
+//        val marker = MapPOIItem()
+//        marker.itemName = "현 위치"
+//        marker.mapPoint =uNowPosition
+//        marker.markerType = MapPOIItem.MarkerType.BluePin
+//        marker.selectedMarkerType = MapPOIItem.MarkerType.RedPin
+//        binding.mapView.addPOIItem(marker)
     }
 
     private fun stopTracking() {
