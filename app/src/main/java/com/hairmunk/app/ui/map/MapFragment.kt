@@ -76,6 +76,18 @@ class MapFragment : Fragment() {
             searchKeyword(keyword, pageNumber)
         }
 
+        binding.btnNextPage.setOnClickListener {
+            pageNumber++
+            binding.tvPageNumber.text = pageNumber.toString()
+            searchKeyword(keyword, pageNumber)
+        }
+
+        binding.btnPrevPage.setOnClickListener {
+            pageNumber--
+            binding.tvPageNumber.text = pageNumber.toString()
+            searchKeyword(keyword, pageNumber)
+        }
+
         return binding.root
     }
 
@@ -139,21 +151,21 @@ class MapFragment : Fragment() {
     @SuppressLint("MissingPermission")
     private fun startTracking() {
         binding.mapView.currentLocationTrackingMode = MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeading  //이 부분
-//
-//        val lm: LocationManager = context?.getSystemService(LOCATION_SERVICE) as LocationManager
-//        val userNowLocation: Location? = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
-//        //위도 , 경도
-//        val uLatitude = userNowLocation?.latitude
-//        val uLongitude = userNowLocation?.longitude
-//        val uNowPosition = MapPoint.mapPointWithGeoCoord(uLatitude!!, uLongitude!!)
-//
-//        // 현 위치에 마커 찍기
-//        val marker = MapPOIItem()
-//        marker.itemName = "현 위치"
-//        marker.mapPoint =uNowPosition
-//        marker.markerType = MapPOIItem.MarkerType.BluePin
-//        marker.selectedMarkerType = MapPOIItem.MarkerType.RedPin
-//        binding.mapView.addPOIItem(marker)
+
+        val lm: LocationManager = context?.getSystemService(LOCATION_SERVICE) as LocationManager
+        val userNowLocation: Location? = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
+        //위도 , 경도
+        val uLatitude = userNowLocation?.latitude
+        val uLongitude = userNowLocation?.longitude
+        val uNowPosition = MapPoint.mapPointWithGeoCoord(uLatitude!!, uLongitude!!)
+
+        // 현 위치에 마커 찍기
+        val marker = MapPOIItem()
+        marker.itemName = "현 위치"
+        marker.mapPoint =uNowPosition
+        marker.markerType = MapPOIItem.MarkerType.BluePin
+        marker.selectedMarkerType = MapPOIItem.MarkerType.RedPin
+        binding.mapView.addPOIItem(marker)
     }
 
     private fun searchKeyword(keyword: String, page: Int) {
@@ -187,7 +199,8 @@ class MapFragment : Fragment() {
                 val point = MapPOIItem()
                 point.apply {
                     itemName = document.place_name
-                    mapPoint = MapPoint.mapPointWithGeoCoord(document.y.toDouble(), document.x.toDouble())
+                    mapPoint = MapPoint.mapPointWithGeoCoord(document.y.toDouble(),
+                        document.x.toDouble())
                     markerType = MapPOIItem.MarkerType.BluePin
                     selectedMarkerType = MapPOIItem.MarkerType.RedPin
                 }
