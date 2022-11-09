@@ -20,9 +20,15 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.hairmunk.app.databinding.FragmentMapBinding
 import com.hairmunk.app.model.MapList
+import com.hairmunk.app.model.ResultSearchKeyword
 import net.daum.mf.map.api.MapPOIItem
 import net.daum.mf.map.api.MapPoint
 import net.daum.mf.map.api.MapView
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class MapFragment : Fragment() {
 
@@ -53,6 +59,22 @@ class MapFragment : Fragment() {
         }
 
         startTracking()
+
+        binding.rvList.adapter = mapListAdapter
+
+        mapListAdapter.setItemClickListener(object : MapListAdapter.OnItemClickListener {
+            override fun onClick(v: View, position: Int) {
+                val mapPoint = MapPoint.mapPointWithCONGCoord(mapList[position].y, mapList[position].x)
+                binding.mapView.setMapCenterPointAndZoomLevel(mapPoint, 1, true)
+            }
+
+        })
+
+        binding.btnSearch.setOnClickListener {
+            keyword = "미용실"
+            pageNumber = 1
+            searchKeyword(keyword, pageNumber)
+        }
 
         return binding.root
     }
@@ -132,6 +154,54 @@ class MapFragment : Fragment() {
 //        marker.markerType = MapPOIItem.MarkerType.BluePin
 //        marker.selectedMarkerType = MapPOIItem.MarkerType.RedPin
 //        binding.mapView.addPOIItem(marker)
+    }
+
+    private fun searchKeyword(keyword: String, page: Int) {
+        val retrofit = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        val api = retrofit.create(KakaoAPI::class.java)
+        val call = api.getSearchKeyword(API_KEY, keyword, page)
+
+        call.enqueue(object : Callback<ResultSearchKeyword> {
+            override fun onResponse(call: Call<ResultSearchKeyword>, response: Response<ResultSearchKeyword>, ) {
+                addItemsMarkers(response.body())
+            }
+
+            override fun onFailure(call: Call<ResultSearchKeyword>, t: Throwable) {
+            }
+
+        })
+
+    }
+
+    private fun addItemsMarkers(searchResult: ResultSearchKeyword?) {
+        if (!searchResult?.documents.isNullOrEmpty()) {
+            mapList.clear()
+            binding.mapView.removeAllPOIItems()
+            for (document in searchResult!!.documents) {
+                val item = MapList(document.place_name, document.road_address_name, document.address_name, document.x.toDouble(), document.y.toDouble())
+                mapList.add(item)
+
+                val point = MapPOIItem()
+                point.apply {
+                    itemName = document.place_name
+                    mapPoint = MapPoint.mapPointWithGeoCoord(document.y.toDouble(), document.x.toDouble())
+                    markerType = MapPOIItem.MarkerType.BluePin
+                    selectedMarkerType = MapPOIItem.MarkerType.RedPin
+                }
+
+                binding.mapView.addPOIItem(point)
+            }
+
+            mapListAdapter.notifyDataSetChanged()
+
+            binding.btnNextPage.isEnabled = !searchResult.meta.is_end
+            binding.btnPrevPage.isEnabled = pageNumber != 1
+        } else {
+            Toast.makeText(requireActivity(), "검색 결과가 없습니다", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun stopTracking() {
