@@ -58,8 +58,6 @@ class MapFragment : Fragment() {
             Toast.makeText(requireContext(), "GPS를 켜주세요", Toast.LENGTH_SHORT).show()
         }
 
-        startTracking()
-
         binding.rvList.adapter = mapListAdapter
 
         mapListAdapter.setItemClickListener(object : MapListAdapter.OnItemClickListener {
@@ -70,11 +68,7 @@ class MapFragment : Fragment() {
 
         })
 
-        binding.btnSearch.setOnClickListener {
-            keyword = "미용실"
-            pageNumber = 1
-            searchKeyword(keyword, pageNumber)
-        }
+        searchKeyword(keyword, pageNumber)
 
         binding.btnNextPage.setOnClickListener {
             pageNumber++
@@ -150,7 +144,7 @@ class MapFragment : Fragment() {
 
     @SuppressLint("MissingPermission")
     private fun startTracking() {
-        binding.mapView.currentLocationTrackingMode = MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeading  //이 부분
+//        binding.mapView.currentLocationTrackingMode = MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeading
 
         val lm: LocationManager = context?.getSystemService(LOCATION_SERVICE) as LocationManager
         val userNowLocation: Location? = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
