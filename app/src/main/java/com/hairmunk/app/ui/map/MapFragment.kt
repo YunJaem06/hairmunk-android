@@ -144,7 +144,7 @@ class MapFragment : Fragment() {
 
     @SuppressLint("MissingPermission")
     private fun startTracking() {
-//        binding.mapView.currentLocationTrackingMode = MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeading
+        binding.mapView.currentLocationTrackingMode = MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeading
 
         val lm: LocationManager = context?.getSystemService(LOCATION_SERVICE) as LocationManager
         val userNowLocation: Location? = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
