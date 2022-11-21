@@ -81,6 +81,7 @@ class MapFragment : Fragment() {
             binding.tvPageNumber.text = pageNumber.toString()
             searchKeyword(keyword, pageNumber)
         }
+        startTracking()
 
         return binding.root
     }
