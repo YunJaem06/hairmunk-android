@@ -72,13 +72,15 @@ class HomeFragment: Fragment(), ProductClickListener {
         }
 
         // 무한 viewpager
-        imgList.add(HomeAd("https://user-images.githubusercontent.com/96619472/193256442-96a7c528-b26e-4d20-a693-ad50118af76e.png"))
-        imgList.add(HomeAd("https://user-images.githubusercontent.com/96619472/193256414-2456a9e1-d509-4086-9678-a465f8ab5abb.png"))
-        imgList.add(HomeAd("https://user-images.githubusercontent.com/96619472/193258789-b1e94af5-07e0-4e16-9f6f-3196e5b8dd21.png"))
-        imgList.add(HomeAd("https://user-images.githubusercontent.com/96619472/193258802-d305c0bb-0a8f-4591-bf08-b5b88b08d00a.png"))
-        imgList.add(HomeAd("https://user-images.githubusercontent.com/96619472/193258806-afc213f1-85b0-43d9-a4a6-218891a768e8.png"))
-        imgList.add(HomeAd("https://user-images.githubusercontent.com/96619472/193258820-2f5664b0-2c80-4b13-9212-d4d38601b903.png"))
-        imgList.add(HomeAd("https://user-images.githubusercontent.com/96619472/193258826-f96e1fb0-eb99-4ec1-b2b7-42b8e445f4df.png"))
+        imgList.add(HomeAd("https://user-images.githubusercontent.com/96619472/203496017-041e8c9b-3cb6-43dd-880f-2e07d87e720f.png"))
+        imgList.add(HomeAd("https://user-images.githubusercontent.com/96619472/203496020-1c0093f3-47a3-450f-b8b9-2058586fe531.png"))
+        imgList.add(HomeAd("https://user-images.githubusercontent.com/96619472/203496021-22d04b29-924f-4998-83a1-35fdfd272a39.png"))
+        imgList.add(HomeAd("https://user-images.githubusercontent.com/96619472/203496022-397c4593-0231-4fb4-8d7d-d4ca5a9c43ab.png"))
+        imgList.add(HomeAd("https://user-images.githubusercontent.com/96619472/203496025-b370a232-a7b8-4b3a-af7e-86965db2d88c.png"))
+        imgList.add(HomeAd("https://user-images.githubusercontent.com/96619472/203496026-5732ebd5-6627-4b8d-a146-84ae7ea4379a.png"))
+        imgList.add(HomeAd("https://user-images.githubusercontent.com/96619472/203496028-f80f04a4-5759-40d0-adf2-a1fa326ba714.png"))
+        imgList.add(HomeAd("https://user-images.githubusercontent.com/96619472/203496030-f77a5ae2-084d-497b-a0df-3303d9c80435.png"))
+        imgList.add(HomeAd("https://user-images.githubusercontent.com/96619472/203496033-c0385de8-fb97-413b-9814-f0633dead061.png"))
 
         bannerAdapter = HomeBannerAutoAdapter(imgList, true, requireActivity())
         binding.mainHomeAdVp.adapter = bannerAdapter

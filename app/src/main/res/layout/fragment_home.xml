@@ -63,8 +63,8 @@
 
                 <com.asksira.loopingviewpager.LoopingViewPager
                     android:id="@+id/main_home_ad_vp"
-                    android:layout_width="match_parent"
-                    android:layout_height="330dp"
+                    android:layout_width="0dp"
+                    android:layout_height="360dp"
                     app:autoScroll="true"
                     app:isInfinite="true"
                     app:layout_constraintStart_toStartOf="parent"

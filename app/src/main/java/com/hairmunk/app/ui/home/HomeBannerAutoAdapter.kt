@@ -18,6 +18,7 @@ class HomeBannerAutoAdapter(itemList: ArrayList<HomeAd>, isInfinite: Boolean, co
         var img = convertView.findViewById<ImageView>(R.id.iv_home_ad_banner)
         Glide.with(mContext)
             .load(itemList!![listPosition].ImageUrl)
+            .centerCrop()
             .into(img)
         position = listPosition
     }
