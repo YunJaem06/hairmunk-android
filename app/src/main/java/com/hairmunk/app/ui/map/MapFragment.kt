@@ -2,6 +2,7 @@ package com.hairmunk.app.ui.map
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Context.LOCATION_SERVICE
 import android.content.Context.MODE_PRIVATE
 import android.content.Intent
@@ -10,6 +11,7 @@ import android.location.Location
 import android.location.LocationManager
 import android.os.Bundle
 import android.provider.Settings
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,6 +19,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import com.hairmunk.app.databinding.FragmentMapBinding
 import com.hairmunk.app.model.MapList
@@ -62,7 +65,7 @@ class MapFragment : Fragment() {
 
         mapListAdapter.setItemClickListener(object : MapListAdapter.OnItemClickListener {
             override fun onClick(v: View, position: Int) {
-                val mapPoint = MapPoint.mapPointWithCONGCoord(mapList[position].y, mapList[position].x)
+                val mapPoint = MapPoint.mapPointWithCONGCoord(mapList[position].x, mapList[position].y)
                 binding.mapView.setMapCenterPointAndZoomLevel(mapPoint, 1, true)
             }
 
@@ -81,6 +84,7 @@ class MapFragment : Fragment() {
             binding.tvPageNumber.text = pageNumber.toString()
             searchKeyword(keyword, pageNumber)
         }
+
         startTracking()
 
         return binding.root
@@ -154,6 +158,9 @@ class MapFragment : Fragment() {
         val uLongitude = userNowLocation?.longitude
         val uNowPosition = MapPoint.mapPointWithGeoCoord(uLatitude!!, uLongitude!!)
 
+        Log.d("myLocation", uLatitude.toInt().toString())
+        Log.d("myLocation", uLongitude.toInt().toString())
+
         // 현 위치에 마커 찍기
         val marker = MapPOIItem()
         marker.itemName = "현 위치"
@@ -163,13 +170,18 @@ class MapFragment : Fragment() {
         binding.mapView.addPOIItem(marker)
     }
 
+    @SuppressLint("MissingPermission")
     private fun searchKeyword(keyword: String, page: Int) {
         val retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val api = retrofit.create(KakaoAPI::class.java)
-        val call = api.getSearchKeyword(API_KEY, keyword, page)
+        val lm: LocationManager = context?.getSystemService(LOCATION_SERVICE) as LocationManager
+        val userNowLocation: Location? = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
+        val uLatitude = userNowLocation?.latitude
+        val uLongitude = userNowLocation?.longitude
+        val call = api.getSearchKeyword(API_KEY, keyword, uLatitude, uLongitude, page)
 
         call.enqueue(object : Callback<ResultSearchKeyword> {
             override fun onResponse(call: Call<ResultSearchKeyword>, response: Response<ResultSearchKeyword>, ) {
@@ -201,6 +213,7 @@ class MapFragment : Fragment() {
                 }
 
                 binding.mapView.addPOIItem(point)
+                binding.mapView.currentLocationTrackingMode = MapView.CurrentLocationTrackingMode.TrackingModeOff
             }
 
             mapListAdapter.notifyDataSetChanged()

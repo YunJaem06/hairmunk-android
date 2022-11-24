@@ -11,6 +11,8 @@ interface KakaoAPI {
     fun getSearchKeyword(
         @Header("Authorization") key: String,
         @Query("query") query: String,
+        @Query("x") x: Double?,
+        @Query("y") y: Double?,
         @Query("page") page: Int
     ): Call<ResultSearchKeyword>
 }
