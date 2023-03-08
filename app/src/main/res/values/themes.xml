@@ -20,9 +20,6 @@
         <!-- Customize your theme here. -->
         <item name="appBarLayoutStyle">@style/AppbarStyle</item>
     </style>
-    <style name="Theme.Hairmunkandroid.Splash">
-        <item name="android:windowBackground">@drawable/background_splash_screen</item>
-    </style>
 
     <style name="AppBottomSheetDialogTheme"
         parent="Theme.Design.Light.BottomSheetDialog">
