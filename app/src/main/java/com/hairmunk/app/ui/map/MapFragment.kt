@@ -156,18 +156,20 @@ class MapFragment : Fragment() {
         //위도 , 경도
         val uLatitude = userNowLocation?.latitude
         val uLongitude = userNowLocation?.longitude
-        val uNowPosition = MapPoint.mapPointWithGeoCoord(uLatitude!!, uLongitude!!)
+        if (uLatitude != null && uLongitude != null) {
+            val uNowPosition = MapPoint.mapPointWithGeoCoord(uLatitude!!, uLongitude!!)
 
-        Log.d("myLocation", uLatitude.toInt().toString())
-        Log.d("myLocation", uLongitude.toInt().toString())
+            Log.d("myLocation", uLatitude.toInt().toString())
+            Log.d("myLocation", uLongitude.toInt().toString())
 
-        // 현 위치에 마커 찍기
-        val marker = MapPOIItem()
-        marker.itemName = "현 위치"
-        marker.mapPoint =uNowPosition
-        marker.markerType = MapPOIItem.MarkerType.BluePin
-        marker.selectedMarkerType = MapPOIItem.MarkerType.RedPin
-        binding.mapView.addPOIItem(marker)
+            // 현 위치에 마커 찍기
+            val marker = MapPOIItem()
+            marker.itemName = "현 위치"
+            marker.mapPoint = uNowPosition
+            marker.markerType = MapPOIItem.MarkerType.BluePin
+            marker.selectedMarkerType = MapPOIItem.MarkerType.RedPin
+            binding.mapView.addPOIItem(marker)
+        }
     }
 
     @SuppressLint("MissingPermission")

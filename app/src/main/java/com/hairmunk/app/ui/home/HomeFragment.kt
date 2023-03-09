@@ -1,13 +1,17 @@
 package com.hairmunk.app.ui.home
 
+import android.app.Activity
+import android.content.Context
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
+import androidx.core.view.WindowCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -102,6 +106,17 @@ class HomeFragment: Fragment(), ProductClickListener {
         setTopBanners()
         setListAdapter()
         setHomeToolbar()
+
+
+        // 상태 바 투명으로 설정
+        requireActivity().setStatusBarTransparent()
+
+        binding.homeMainToolbar.setPadding(
+            0,
+            requireContext().statusBarHeight(),
+            0,
+            0
+        )
     }
 
     override fun onProductClick(productId: String) {
@@ -162,6 +177,28 @@ class HomeFragment: Fragment(), ProductClickListener {
             promotionAdapter.submitList(promotions.items)
         }
     }
+
+    //앱 전체 화면
+    fun Activity.setStatusBarTransparent() {
+        window.apply {
+            setFlags(
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+            )
+        }
+        if(Build.VERSION.SDK_INT >= 30) {
+            WindowCompat.setDecorFitsSystemWindows(window, false)
+        }
+    }
+
+    // 상태바 높이 계산
+    fun Context.statusBarHeight(): Int {
+        val resourceId = resources.getIdentifier("status_bar_height", "dimen", "android")
+
+        return if (resourceId > 0) resources.getDimensionPixelSize(resourceId)
+        else 0
+    }
+
 
     override fun onResume() {
         super.onResume()
