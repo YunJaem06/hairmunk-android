@@ -50,24 +50,27 @@ class HomeFragment: Fragment(), ProductClickListener {
         binding.homeMainToolbar.getLocationOnScreen(outLocation)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             binding.homeScrollview.setOnScrollChangeListener { p0, p1, p2, p3, p4 ->
+                val statusBarAlpha = (p2 * 0.425).toInt()
+                val menuAlpha = (255 - (p2 * 0.85).toInt())
+                val menuTint = if (p2 > 300) R.color.black_01 else R.color.white
                 if (p2 > 600) {
                     requireActivity().window.statusBarColor = Color.argb(255, 255, 255, 255)
                 } else {
-                    requireActivity().window.statusBarColor = Color.argb((p2 * 0.425).toInt(), 255, 255, 255)
+                    requireActivity().window.statusBarColor = Color.argb(statusBarAlpha, 255, 255, 255)
                 }
 
-                binding.homeMainToolbar.background.alpha = ((p2 * 0.425).toInt())
+                binding.homeMainToolbar.background.alpha = statusBarAlpha
                 if (p2 > 300) {
                     binding.ivHomeMenu.background.alpha = ((p2 - 300) * 0.85).toInt()
                     binding.ivHomeAlarm.background.alpha = ((p2 - 300) * 0.85).toInt()
                     binding.ivHomeSearch.background.alpha = ((p2 - 300) * 0.85).toInt()
-                    binding.ivHomeMenu.background.setTint(ContextCompat.getColor(requireActivity(), R.color.black_01))
-                    binding.ivHomeAlarm.background.setTint(ContextCompat.getColor(requireActivity(), R.color.black_01))
-                    binding.ivHomeSearch.background.setTint(ContextCompat.getColor(requireActivity(), R.color.black_01))
+                    binding.ivHomeMenu.background.setTint(ContextCompat.getColor(requireActivity(), menuTint))
+                    binding.ivHomeAlarm.background.setTint(ContextCompat.getColor(requireActivity(), menuTint))
+                    binding.ivHomeSearch.background.setTint(ContextCompat.getColor(requireActivity(), menuTint))
                 } else if (p2 < 300){
-                    binding.ivHomeMenu.background.alpha = (255 - (p2 * 0.85).toInt())
-                    binding.ivHomeAlarm.background.alpha = (255 - (p2 * 0.85).toInt())
-                    binding.ivHomeSearch.background.alpha = (255 - (p2 * 0.85).toInt())
+                    binding.ivHomeMenu.background.alpha = menuAlpha
+                    binding.ivHomeAlarm.background.alpha = menuAlpha
+                    binding.ivHomeSearch.background.alpha = menuAlpha
                     binding.ivHomeMenu.background.setTint(ContextCompat.getColor(requireActivity(), R.color.white))
                     binding.ivHomeAlarm.background.setTint(ContextCompat.getColor(requireActivity(), R.color.white))
                     binding.ivHomeSearch.background.setTint(ContextCompat.getColor(requireActivity(), R.color.white))
