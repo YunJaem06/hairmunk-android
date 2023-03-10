@@ -57,11 +57,12 @@ Room db를 이용하여 장바구니 화면 구현
 
 Kakao map Api와 Kakao search Api를 이용하여 미용실을 찾을수 있는 지도를 구현했습니다.
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/96619472/221159891-4602e865-9b0b-4527-bb27-15006300639e.png" width="40%" height="30%">
+    <img src="https://user-images.githubusercontent.com/96619472/224287128-bc9309e5-6f60-4210-bc73-ce9d633d3e8a.png" width="40%" height="30%">
 </p>
 <br/>
 
-### 화면을 만들면서 배운것
-
-* 기술을 하나씩 
+### 어려웠던점 
+https://user-images.githubusercontent.com/96619472/224290310-ba499087-21bd-463c-bb89-d19006facea3.mp4
+* 홈화면에 상태바 투명하게 하는 방법은 https://gogigood.tistory.com/20 이 블로그를 이용하여 해결했습니다.
+* https://m.blog.naver.com/PostView.nhn?blogId=tkddlf4209&logNo=221342859972&proxyReferer=https:%2F%2Fwww.google.com%2F를 보고 참고하여 하나씩 대입했습니다.
 
