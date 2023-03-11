@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.widget.AppCompatButton
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.hairmunk.app.R
@@ -22,6 +23,7 @@ import org.w3c.dom.Text
 class SignupActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivitySignupBinding
+    private lateinit var loginViewModel: LoginViewModel
 
     private lateinit var agencyAdapter: AgencyRvAdapter
     private lateinit var agencyDialog: BottomSheetDialog
@@ -44,6 +46,8 @@ class SignupActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         binding= ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        loginViewModel = ViewModelProvider(this)[LoginViewModel::class.java]
 
         binding.btnLoginNext.setOnClickListener(this)
 

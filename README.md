@@ -61,12 +61,14 @@ Kakao map Api와 Kakao search Api를 이용하여 미용실을 찾을수 있는 
 </p>
 <br/>
 
+***
 ### 어려웠던점 
 
 https://user-images.githubusercontent.com/96619472/224290310-ba499087-21bd-463c-bb89-d19006facea3.mp4
 * 홈화면에 상태바 투명하게 하는 방법은 https://gogigood.tistory.com/20 이 블로그를 이용하여 해결했습니다.
 * https://m.blog.naver.com/PostView.nhn?blogId=tkddlf4209&logNo=221342859972&proxyReferer=https:%2F%2Fwww.google.com%2F를 보고 참고하여 하나씩 대입했습니다.
 
+***
 ### 추가적으로 공부하고 적용하고싶은 것들
 * MVVM 다지인패턴, 의존성 주입 Hlit
 
