@@ -7,12 +7,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 class CartRepository(
-    private val localDataSource: CartItemLocalDataSource,
-    private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
-) {
+    private val localDataSource: CartItemLocalDataSource) {
 
     suspend fun addCartItem(product: Product) {
-        withContext(ioDispatcher) {
+        withContext(Dispatchers.IO) {
             val cartItem = CartItem(
                 productId = product.productId,
                 label = product.label,
@@ -26,8 +24,14 @@ class CartRepository(
         }
     }
 
+    suspend fun deleteCartItem(cartItem: CartItem) {
+        withContext(Dispatchers.IO){
+            localDataSource.deleteCartItem(cartItem)
+        }
+    }
+
     suspend fun getCartItems(): List<CartItem> {
-        return withContext(ioDispatcher) {
+        return withContext(Dispatchers.IO) {
             localDataSource.getCartItems()
         }
     }

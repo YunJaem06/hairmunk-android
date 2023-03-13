@@ -1,19 +1,24 @@
 package com.hairmunk.app.ui.cart
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import com.hairmunk.app.databinding.ItemCartSectionBinding
 import com.hairmunk.app.databinding.ItemCartSectionHeaderBinding
+import com.hairmunk.app.generated.callback.OnClickListener
 import com.hairmunk.app.model.CartHeader
 import com.hairmunk.app.model.CartItem
 import com.hairmunk.app.model.CartProduct
+import com.hairmunk.app.ui.common.ViewModelFactory
 
 
 private const val VIEW_TYPE_HEADER = 0
 private const val VIEW_TYPE_ITEM = 1
 
-class CartAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class CartAdapter(private val clickListener: (CartItem) -> Unit): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val cartProducts = mutableListOf<CartProduct>()
 
@@ -33,7 +38,7 @@ class CartAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             }
             is ItemViewHolder -> {
                 val item = cartProducts[position] as CartItem
-                holder.bind(item)
+                holder.bind(item, clickListener)
             }
         }
     }
@@ -71,9 +76,12 @@ class CartAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     class ItemViewHolder(private val binding: ItemCartSectionBinding): RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: CartItem) {
+        fun bind(item: CartItem, clickListener: (CartItem) -> Unit) {
             binding.item = item
             binding.executePendingBindings()
+            binding.btnDeleteCartItem.setOnClickListener {
+                clickListener(item)
+            }
         }
     }
 }

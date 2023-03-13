@@ -21,16 +21,18 @@ class ProductDetailViewModel(
     private val _addCartEvent = MutableLiveData<Event<Unit>>()
     val addCartEvent: LiveData<Event<Unit>> = _addCartEvent
 
+
     fun loadProductDetail(productId: String) {
         viewModelScope.launch {
             _product.value = productDetailRepository.getProductDetail(productId)
         }
     }
 
-    fun  addCart(product: Product) {
+    fun addCart(product: Product) {
         viewModelScope.launch {
             cartRepository.addCartItem(product)
             _addCartEvent.value = Event(Unit)
         }
     }
+
 }

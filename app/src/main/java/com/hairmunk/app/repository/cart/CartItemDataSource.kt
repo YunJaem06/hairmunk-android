@@ -6,5 +6,7 @@ interface CartItemDataSource {
 
     suspend fun addCartItem(cartItem: CartItem)
 
+    suspend fun deleteCartItem(cartItem: CartItem)
+
     suspend fun getCartItems(): List<CartItem>
 }

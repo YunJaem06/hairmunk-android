@@ -8,6 +8,10 @@
             name="item"
             type="com.hairmunk.app.model.CartItem" />
 
+        <variable
+            name="viewModel"
+            type="com.hairmunk.app.ui.cart.CartViewModel" />
+
     </data>
 
     <androidx.cardview.widget.CardView

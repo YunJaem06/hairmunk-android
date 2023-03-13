@@ -9,6 +9,10 @@ class CartItemLocalDataSource(private val dao: CartItemDao) : CartItemDataSource
         dao.insert(cartItem)
     }
 
+    override suspend fun deleteCartItem(cartItem: CartItem){
+        dao.delete(cartItem)
+    }
+
     override suspend fun getCartItems(): List<CartItem> {
         return dao.load()
     }
