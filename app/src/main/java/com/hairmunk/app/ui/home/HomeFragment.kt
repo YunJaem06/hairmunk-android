@@ -24,29 +24,18 @@ import com.hairmunk.app.databinding.FragmentHomeBinding
 import com.hairmunk.app.model.HomeAd
 import com.hairmunk.app.ui.common.*
 
-class HomeFragment: Fragment(), ProductClickListener {
+class HomeFragment: BaseFragment<FragmentHomeBinding>(R.layout.fragment_home), ProductClickListener {
 
     private val viewModel: HomeViewModel by viewModels { ViewModelFactory(requireContext()) }
-    private lateinit var binding: FragmentHomeBinding
 
     private lateinit var bannerAdapter: HomeBannerAutoAdapter
     var imgList = ArrayList<HomeAd>()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentHomeBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun init() {
 
         // 상단바 투명도 조정
         val outLocation = IntArray(2)
-        val tabLocation = IntArray(2)
+
         binding.homeMainToolbar.getLocationOnScreen(outLocation)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             binding.homeScrollview.setOnScrollChangeListener { p0, p1, p2, p3, p4 ->
@@ -103,6 +92,7 @@ class HomeFragment: Fragment(), ProductClickListener {
 
         })
 
+
         binding.lifecycleOwner = viewLifecycleOwner
         setToolbar()
         setNavigation()
@@ -120,6 +110,7 @@ class HomeFragment: Fragment(), ProductClickListener {
             0,
             0
         )
+
     }
 
     override fun onProductClick(productId: String) {
@@ -180,28 +171,6 @@ class HomeFragment: Fragment(), ProductClickListener {
             promotionAdapter.submitList(promotions.items)
         }
     }
-
-    //앱 전체 화면
-    fun Activity.setStatusBarTransparent() {
-        window.apply {
-            setFlags(
-                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-            )
-        }
-        if(Build.VERSION.SDK_INT >= 30) {
-            WindowCompat.setDecorFitsSystemWindows(window, false)
-        }
-    }
-
-    // 상태바 높이 계산
-    fun Context.statusBarHeight(): Int {
-        val resourceId = resources.getIdentifier("status_bar_height", "dimen", "android")
-
-        return if (resourceId > 0) resources.getDimensionPixelSize(resourceId)
-        else 0
-    }
-
 
     override fun onResume() {
         super.onResume()
