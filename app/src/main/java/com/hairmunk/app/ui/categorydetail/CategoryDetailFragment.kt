@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.ConcatAdapter
+import com.hairmunk.app.BaseFragment
+import com.hairmunk.app.R
 import com.hairmunk.app.common.KEY_CATEGORY_LABEL
 import com.hairmunk.app.databinding.FragmentCategoryDetailBinding
 import com.hairmunk.app.ui.common.ProductClickListener
@@ -14,27 +16,13 @@ import com.hairmunk.app.ui.common.ProductPromotionAdapter
 import com.hairmunk.app.ui.common.SectionTitleAdapter
 import com.hairmunk.app.ui.common.ViewModelFactory
 
-class CategoryDetailFragment : Fragment(), ProductClickListener {
+class CategoryDetailFragment : BaseFragment<FragmentCategoryDetailBinding>(R.layout.fragment_category_detail), ProductClickListener {
 
-    private lateinit var binding: FragmentCategoryDetailBinding
     private val viewModel: CategoryDetailViewModel by viewModels { ViewModelFactory(requireContext()) }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentCategoryDetailBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        binding.lifecycleOwner = viewLifecycleOwner
+    override fun init() {
         setToolbar()
-        setListAdapter()
-    }
+        setListAdapter()    }
 
     override fun onProductClick(productId: String) {
     }

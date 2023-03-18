@@ -7,30 +7,19 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.hairmunk.app.BaseFragment
+import com.hairmunk.app.R
 import com.hairmunk.app.databinding.FragmentCartBinding
 import com.hairmunk.app.model.CartItem
 import com.hairmunk.app.ui.common.EventObserver
 import com.hairmunk.app.ui.common.ViewModelFactory
 import com.hairmunk.app.ui.productdetail.ProductDetailViewModel
 
-class CartFragment: Fragment() {
+class CartFragment: BaseFragment<FragmentCartBinding>(R.layout.fragment_cart) {
 
     private val viewModel: CartViewModel by viewModels { ViewModelFactory(requireContext()) }
-    private lateinit var binding: FragmentCartBinding
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentCartBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        binding.lifecycleOwner = viewLifecycleOwner
+    override fun init() {
         setListAdapter()
         deleteCart()
     }
