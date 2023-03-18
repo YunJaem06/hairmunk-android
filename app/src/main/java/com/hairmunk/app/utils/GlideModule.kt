@@ -1,4 +1,4 @@
-package com.hairmunk.app
+package com.hairmunk.app.utils
 
 import com.bumptech.glide.annotation.GlideModule
 import com.bumptech.glide.module.AppGlideModule

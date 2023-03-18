@@ -1,4 +1,4 @@
-package com.hairmunk.app
+package com.hairmunk.app.utils
 
 import android.content.Context
 import androidx.room.Room

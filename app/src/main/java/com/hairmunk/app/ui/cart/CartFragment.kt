@@ -1,19 +1,13 @@
 package com.hairmunk.app.ui.cart
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.hairmunk.app.BaseFragment
+import com.hairmunk.app.utils.BaseFragment
 import com.hairmunk.app.R
 import com.hairmunk.app.databinding.FragmentCartBinding
 import com.hairmunk.app.model.CartItem
 import com.hairmunk.app.ui.common.EventObserver
 import com.hairmunk.app.ui.common.ViewModelFactory
-import com.hairmunk.app.ui.productdetail.ProductDetailViewModel
 
 class CartFragment: BaseFragment<FragmentCartBinding>(R.layout.fragment_cart) {
 

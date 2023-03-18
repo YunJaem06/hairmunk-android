@@ -1,13 +1,8 @@
 package com.hairmunk.app.ui.categorydetail
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.ConcatAdapter
-import com.hairmunk.app.BaseFragment
+import com.hairmunk.app.utils.BaseFragment
 import com.hairmunk.app.R
 import com.hairmunk.app.common.KEY_CATEGORY_LABEL
 import com.hairmunk.app.databinding.FragmentCategoryDetailBinding

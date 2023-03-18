@@ -1,4 +1,4 @@
-package com.hairmunk.app
+package com.hairmunk.app.utils
 
 import java.io.BufferedReader
 import java.io.IOException
@@ -12,7 +12,7 @@ object NaverProfile {
     private var token: String = ""
 
     fun setToken(token: String) {
-        this.token = token
+        NaverProfile.token = token
     }
 
     fun getProfile(): String {

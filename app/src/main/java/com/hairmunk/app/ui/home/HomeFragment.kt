@@ -1,18 +1,10 @@
 package com.hairmunk.app.ui.home
 
-import android.app.Activity
-import android.content.Context
 import android.graphics.Color
 import android.os.Build
-import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.view.WindowManager
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
-import androidx.core.view.WindowCompat
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ConcatAdapter
@@ -23,6 +15,7 @@ import com.hairmunk.app.common.KEY_PRODUCT_ID
 import com.hairmunk.app.databinding.FragmentHomeBinding
 import com.hairmunk.app.model.HomeAd
 import com.hairmunk.app.ui.common.*
+import com.hairmunk.app.utils.BaseFragment
 
 class HomeFragment: BaseFragment<FragmentHomeBinding>(R.layout.fragment_home), ProductClickListener {
 

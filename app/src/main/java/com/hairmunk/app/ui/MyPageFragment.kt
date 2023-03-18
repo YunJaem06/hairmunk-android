@@ -11,7 +11,7 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.hairmunk.app.R
-import com.hairmunk.app.SharedPreferences
+import com.hairmunk.app.utils.SharedPreferences
 import com.hairmunk.app.databinding.FragmentMypageBinding
 import com.hairmunk.app.ui.login.LOGIN
 import com.hairmunk.app.ui.login.LoginActivity

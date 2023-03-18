@@ -1,7 +1,7 @@
 package com.hairmunk.app.repository.home
 
 import com.google.gson.Gson
-import com.hairmunk.app.AssetLoader
+import com.hairmunk.app.utils.AssetLoader
 import com.hairmunk.app.model.HomeData
 
 class HomeAssetDataSource(private val assetLoader: AssetLoader) : HomeDataSource {

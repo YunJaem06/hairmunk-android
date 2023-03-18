@@ -8,9 +8,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.gson.Gson
-import com.hairmunk.app.NaverProfile
+import com.hairmunk.app.utils.NaverProfile
 import com.hairmunk.app.R
-import com.hairmunk.app.SharedPreferences
+import com.hairmunk.app.utils.SharedPreferences
 import com.hairmunk.app.databinding.ActivityMainBinding
 import com.hairmunk.app.model.NaverResult
 import com.hairmunk.app.ui.login.LOGIN
